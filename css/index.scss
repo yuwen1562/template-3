@@ -1,0 +1,753 @@
+@font-face {
+  font-family: DigifaceWide;
+  src: url("./fonts/digifaw.ttf");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  width: 100%;
+  overflow: hidden;
+  height: 100%;
+}
+body {
+  background: url("../img/bg.png") no-repeat;
+  background-size: 100% 100%;
+  position: relative;
+
+  &::before {
+    content: "";
+    background: url("../img/circle.png") no-repeat;
+    background-size: 100%;
+    width: 5.2%;
+    height: 12%;
+    position: absolute;
+    top: 7.6%;
+    right: 0;
+  }
+}
+
+/* 標頭 */
+.header {
+  width: 100%;
+  height: 10%;
+  position: relative;
+
+  .titleLeft {
+    background: url(../img/title_left_img.png) no-repeat left;
+    background-size: 100%;
+    width: 25%;
+    margin-left: 20px;
+  }
+  .titleMiddle {
+    align-self: flex-start;
+    width: 50%;
+
+    .title {
+      width: 100%;
+      font-size: 2.5rem;
+      justify-content: center;
+      align-items: flex-end;
+      display: flex;
+      letter-spacing: 0.3rem;
+      color: #ffffff;
+    }
+    .gifImg {
+      position: absolute;
+      top: 60%;
+      width: 50%;
+      height: 80%;
+      min-height: 50px;
+      overflow: hidden;
+
+      &:after {
+        content: "";
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, 20%);
+        display: block;
+        background: url(../img/header.gif) no-repeat center;
+        background-size: 100%;
+        height: 55px;
+        width: 36.5%;
+        min-width: 700px;
+      }
+
+      .currentTime {
+        width: 100%;
+        height: 100%;
+        font-size: 1.3rem;
+        display: flex;
+        color: #ffffff;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+  .titleRight {
+    align-self: flex-end;
+
+    .nav-link {
+      color: #ffffff !important;
+
+      &:hover {
+        color: #ffe4c4 !important;
+      }
+    }
+  }
+}
+/* 標頭 */
+
+.main {
+  width: 100%;
+  height: 84%;
+
+  h5 {
+    color: #ffffff;
+    position: absolute;
+  }
+
+  .left {
+    position: relative;
+    width: 25%;
+    height: 100%;
+    margin-left: 20px;
+
+    .titleRecord {
+      color: #2edbff;
+      position: absolute;
+      top: 13%;
+      width: 100%;
+    }
+
+    h5 {
+      top: 4%;
+      left: 10%;
+    }
+
+    .rank,
+    .name,
+    .company,
+    .hot {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    .rank {
+      width: 13%;
+      text-align: center;
+      color: #2edbff;
+    }
+
+    .textStyle {
+      color: #ffffff;
+    }
+
+    .leftUp {
+      position: relative;
+      height: 49%;
+      opacity: 0.9;
+      background: rgba(#121640, 0.5);
+
+      &:after {
+        position: absolute;
+        right: 0;
+        bottom: -10.4%;
+        width: 5%;
+        min-width: 20px;
+        height: 13%;
+        min-height: 50px;
+        background: url("../img/bor1_1_xie.png") no-repeat;
+        background-size: 100% 100%;
+
+        content: "";
+      }
+
+      &:before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 106%;
+        background: url("../img/bor1_1.png") no-repeat;
+        background-size: 100% 100%;
+        z-index: -1;
+
+        content: "";
+      }
+
+      .name {
+        width: 32%;
+      }
+      .company {
+        width: 34%;
+      }
+      .hot {
+        width: 19%;
+        padding-left: 2%;
+      }
+
+      .hCarousel {
+        position: relative;
+        width: 100%;
+        height: 103%;
+        overflow: hidden;
+
+        .hCarouselWarp {
+          width: 100%;
+          position: absolute;
+          top: 20%;
+          left: 0;
+        }
+        .go {
+          transition: all 0.5s linear;
+        }
+        .top1 {
+          top: -100% !important;
+        }
+        .top2 {
+          top: -200% !important;
+        }
+      }
+      .ulCarousel {
+        height: 100%;
+        padding: 0;
+        margin-bottom: 3rem;
+
+        li {
+          height: 11.5%;
+          cursor: pointer;
+
+          .contentRecord {
+            height: 100%;
+          }
+          .book-show {
+            display: none;
+            position: relative;
+            overflow: hidden;
+            margin-top: 2%;
+
+            .imgBox {
+              position: relative;
+              width: 25%;
+              height: 100%;
+              margin: 0 4% 0 6%;
+
+              img {
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 100%;
+                max-height: 100%;
+                overflow: hidden;
+              }
+            }
+
+            .contentInfo {
+              align-self: center;
+              width: 45%;
+              height: 100%;
+              margin-top: 2%;
+              font-size: 1rem;
+              overflow: hidden;
+
+              p {
+                height: 20%;
+                margin: 0;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+              }
+            }
+          }
+        }
+        li.active {
+          height: auto;
+          background: rgba(#1397ff, 0.1);
+          .contentRecord {
+            border-bottom: none;
+          }
+          .book-show {
+            display: block;
+          }
+        }
+      }
+    }
+
+    .contentRecord {
+      border-bottom: 1px solid rgba(#1397ff, 0.1);
+      font-size: 12px;
+      span {
+        display: inline-block;
+        height: 100%;
+      }
+
+      .rank {
+        color: #2edbff;
+      }
+
+      .hot {
+        color: #1397ff;
+      }
+    }
+
+    .leftDown {
+      position: absolute;
+      width: 100%;
+      height: 49%;
+      bottom: 0;
+      opacity: 0.9;
+
+      &:before {
+        content: "";
+        position: absolute;
+        top: 5.6%;
+        right: -2%;
+        z-index: 100;
+        width: 15%;
+        height: 7%;
+        background: url("../img/bor1_2_square.png") no-repeat;
+        background-size: 100%;
+        z-index: 10;
+      }
+      &:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 104%;
+        background: url("../img/bor1_2.png") no-repeat;
+        background-size: 100% 97%;
+        z-index: -1;
+      }
+
+      .company {
+        width: 67%;
+      }
+      .hot {
+        width: 20%;
+      }
+      .ulCarousel {
+        height: 100%;
+        width: 100%;
+        padding: 0;
+        position: absolute;
+        top: 20%;
+
+        li {
+          height: 10.5%;
+          border-bottom: 1px solid rgba(19, 151, 255, 0.1);
+          width: 100%;
+
+          .contentRecord {
+            height: 100%;
+            border-bottom: none;
+          }
+          .company {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+          }
+        }
+      }
+
+      .pressRotate {
+        animation: recordRotate 0.5s ease-in;
+      }
+      @keyframes recordRotate {
+        0% {
+          transform: rotateX(0deg);
+        }
+
+        100% {
+          transform: rotateX(360deg);
+        }
+      }
+    }
+  }
+
+  .middle {
+    width: 50%;
+    height: 100%;
+    position: relative;
+
+    #twMap {
+      height: 500px;
+      width: 100%;
+      min-width: 310px;
+      max-width: 800px;
+      margin: 0 auto;
+      position: absolute;
+      top: 19%;
+      z-index: 99;
+    }
+
+    h3 {
+      height: 14%;
+    }
+
+    .mapUp {
+      position: absolute;
+      width: 100%;
+      height: 94%;
+      top: 6%;
+      opacity: 0.9;
+      border-top: 4px solid #121e52;
+      border-bottom: 4px solid #10144b;
+      background: rgba(#121640, 0.5);
+      background-size: 100% 100%;
+
+      h3 {
+        position: absolute;
+        top: 1%;
+        left: 50%;
+        width: 100%;
+        padding: 0 3%;
+        -webkit-transform: translate(-50%, 0);
+        transform: translate(-50%, 0);
+
+        dl {
+          width: 20%;
+          padding: 0.4% 0.2% 0 0.4%;
+          border-left: 2px solid #00bbec;
+
+          dt {
+            font-size: 1rem;
+            color: #00bbec;
+            margin-bottom: 5%;
+          }
+
+          dd {
+            font-family: DigifaceWide;
+            font-size: 1.8rem;
+            color: #ffffff;
+          }
+        }
+      }
+    }
+
+    .mapTitle {
+      position: absolute;
+      left: 11%;
+      top: 30%;
+      font-size: 1.5rem;
+      color: #ffffff;
+    }
+
+    .mapFocus {
+      position: absolute;
+      top: 50vh;
+      left: 65vh;
+      width: 40%;
+      height: 20%;
+
+      &::after {
+        content: "";
+        background: url("../img/tip-bg.png") no-repeat;
+        background-size: 100% 100%;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0vh;
+        left: -3vh;
+      }
+
+      #focusTitle {
+        font-size: 1.5rem;
+        width: 80px;
+        color: #ffffff;
+        z-index: 1;
+        align-self: center;
+      }
+      #focusContent {
+        font-size: 1rem;
+        color: #ffffff;
+        width: 150px;
+        position: absolute;
+        top: 20px;
+        left: 85px;
+        z-index: 1;
+      }
+    }
+
+    .olPopup {
+      position: absolute;
+      bottom: 30px;
+      left: -38px;
+
+      &::after {
+        content: "";
+        background: url("../img/tip-bg.png") no-repeat;
+        background-size: 100% 100%;
+        width: 300px;
+        height: 130px;
+        position: absolute;
+        top: -44px;
+        left: -19px;
+        z-index: -1;
+      }
+
+      #popupTitle {
+        font-size: 1.5rem;
+        width: 80px;
+        color: #ffffff;
+      }
+      #popupContent {
+        font-size: 1rem;
+        color: #ffffff;
+        width: 150px;
+        position: absolute;
+        top: -25px;
+        left: 85px;
+      }
+    }
+
+    .pointPopup {
+      position: absolute;
+      bottom: 10px;
+      left: -25px;
+      color: #ffffff;
+      width: 50px;
+      text-align: center;
+    }
+  }
+
+  .right {
+    position: relative;
+    width: 25%;
+    height: 100%;
+    margin-right: 20px;
+
+    .rightUp {
+      position: relative;
+      height: 38%;
+      margin-bottom: 1%;
+
+      &::after {
+        content: "";
+        background: url("../img/bor1_4.png") no-repeat;
+        background-size: 100% 100%;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      .rightUpLeft {
+        width: 50%;
+
+        h5 {
+          top: 9%;
+          left: 8%;
+        }
+      }
+      .rightUpRight {
+        width: 50%;
+
+        h5 {
+          top: 9%;
+          left: 59%;
+        }
+      }
+
+      #leftPie,
+      #rightPie {
+        height: 100%;
+        width: 50%;
+        position: absolute;
+        top: -3%;
+      }
+
+      .highcharts-figure {
+        min-width: 100%;
+        max-width: 660px;
+      }
+      .highcharts-data-table table {
+        min-width: 320px;
+        max-width: 660px;
+        margin: 1em auto;
+      }
+      .highcharts-data-table table {
+        font-family: Verdana, sans-serif;
+        border-collapse: collapse;
+        border: 1px solid #ebebeb;
+        margin: 10px auto;
+        text-align: center;
+        width: 100%;
+        max-width: 500px;
+      }
+      .highcharts-data-table caption {
+        padding: 1em 0;
+        font-size: 1.2em;
+        color: #555;
+      }
+
+      .highcharts-data-table th {
+        font-weight: 600;
+        padding: 0.5em;
+      }
+
+      .highcharts-data-table td,
+      .highcharts-data-table th,
+      .highcharts-data-table caption {
+        padding: 0.5em;
+      }
+
+      .highcharts-data-table thead tr,
+      .highcharts-data-table tr:nth-child(even) {
+        background: #f8f8f8;
+      }
+
+      .highcharts-data-table tr:hover {
+        background: #f1f7ff;
+      }
+    }
+    .rightMiddle {
+      position: relative;
+      height: 35%;
+      margin-bottom: 1%;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: url("../img/bor1_5.png") no-repeat;
+        background-size: 100% 100%;
+      }
+
+      h5 {
+        top: 12%;
+        left: 5%;
+      }
+
+      .highcharts-figure,
+      .highcharts-data-table table {
+        min-width: 310px;
+        max-width: 800px;
+        margin: 0;
+      }
+
+      #rightBar {
+        width: 100%;
+        height: 80%;
+        position: absolute;
+        top: 19%;
+        left: 2%;
+      }
+
+      .highcharts-data-table table {
+        font-family: Verdana, sans-serif;
+        border-collapse: collapse;
+        border: 1px solid #ebebeb;
+        margin: 10px auto;
+        text-align: center;
+        width: 100%;
+        max-width: 500px;
+      }
+
+      .highcharts-data-table caption {
+        padding: 1em 0;
+        font-size: 1.2em;
+        color: #555;
+      }
+
+      .highcharts-data-table th {
+        font-weight: 600;
+        padding: 0.5em;
+      }
+
+      .highcharts-data-table td,
+      .highcharts-data-table th,
+      .highcharts-data-table caption {
+        padding: 0.5em;
+      }
+
+      .highcharts-data-table thead tr,
+      .highcharts-data-table tr:nth-child(even) {
+        background: #f8f8f8;
+      }
+
+      .highcharts-data-table tr:hover {
+        background: #f1f7ff;
+      }
+    }
+    .rightDown {
+      position: relative;
+      width: 100%;
+      height: 26%;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: url("../img/bor1_6.png") no-repeat;
+        background-size: 100% 100%;
+      }
+
+      h5 {
+        top: 12%;
+        left: 5%;
+      }
+
+      .highcharts-figure,
+      .highcharts-data-table table {
+        min-width: 310px;
+        max-width: 800px;
+        margin: 0;
+      }
+
+      #rightColumnLine {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 7%;
+      }
+
+      .highcharts-data-table table {
+        font-family: Verdana, sans-serif;
+        border-collapse: collapse;
+        border: 1px solid #ebebeb;
+        margin: 10px auto;
+        text-align: center;
+        width: 100%;
+        max-width: 500px;
+      }
+
+      .highcharts-data-table caption {
+        padding: 1em 0;
+        font-size: 1.2em;
+        color: #555;
+      }
+
+      .highcharts-data-table th {
+        font-weight: 600;
+        padding: 0.5em;
+      }
+
+      .highcharts-data-table td,
+      .highcharts-data-table th,
+      .highcharts-data-table caption {
+        padding: 0.5em;
+      }
+
+      .highcharts-data-table thead tr,
+      .highcharts-data-table tr:nth-child(even) {
+        background: #f8f8f8;
+      }
+
+      .highcharts-data-table tr:hover {
+        background: #f1f7ff;
+      }
+    }
+  }
+}

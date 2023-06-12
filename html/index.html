@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/all.css" />
+    <link
+      rel="stylesheet"
+      href="../module/bootstrap-5.2.2-dist/css/bootstrap.min.css"
+    />
+    <link
+    rel="stylesheet"
+      href="../module/dataTables/datatables.min.css"
+    />
+    <link rel="stylesheet" href="../module/openlayers-v7.2.2/ol.css" />
+    <script src="../module/jquery-3.6.1.min.js"></script>
+    <script src="../module/dataTables/datatables.min.js"></script>
+    <script src="../module/bootstrap-5.2.2-dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../module/moment-with-locales.min.js"></script>
+    <script src="../module/Highcharts-Maps-10.3.2/code/highmaps.js"></script>
+    <script src="../module/Highcharts-Maps-10.3.2/code/modules/data.js"></script>
+    <script src="../module/Highcharts-Maps-10.3.2/code/modules/offline-exporting.js"></script>
+    <script src="../module/Highcharts-Maps-10.3.2/code/modules/export-data.js"></script>
+    <script src="../module/proj4js-2.8.0/dist/proj4.js"></script>
+    <script src="../module/openlayers-v7.2.2/dist/ol.js"></script>
+    <title>EME 戰情看板-3</title>
+  </head>
+  <body>
+    <div class="header d-flex">
+      <div class="titleLeft"></div>
+      <div class="titleMiddle">
+        <div class="title">EME 戰情看板-3</div>
+        <div class="gifImg">
+          <div id="currentTime" class="currentTime"></div>
+        </div>
+      </div>
+      <div class="titleRight">
+        <!-- <nav class="navbar navbar-expand-lg">
+          <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+              <div class="navbar-nav">
+                <a class="nav-link" href="#">自動切換</a>
+                <a class="nav-link active" aria-current="page" href="#"
+                  >第一屏</a
+                >
+                <a class="nav-link" href="#">第二屏</a>
+                <a class="nav-link" href="#">第三屏</a>
+                <a class="nav-link" href="#">第四屏</a>
+              </div>
+            </div>
+          </div>
+        </nav> -->
+      </div>
+    </div>
+    <div class="main d-flex">
+      <div class="left">
+        <div class="leftUp">
+          <h5>暢銷書排行</h5>
+          <div class="titleRecord d-flex">
+            <span class="rank"></span>
+            <span class="name">書名</span>
+            <span class="company">出版公司</span>
+            <span class="hot">熱銷指數</span>
+          </div>
+          <div class="hCarousel">
+            <div class="hCarouselWarp">
+              <ul class="ulCarousel">
+                <li class="active">
+                  <div class="contentRecord d-flex">
+                    <span class="rank">1</span>
+                    <span class="name textStyle">時代廣場的蟋蟀</span>
+                    <span class="company textStyle">XX出版社</span>
+                    <span class="hot">9.5</span>
+                  </div>
+                  <div class="book-show">
+                    <div class="d-flex justify-content-center h-100">
+                      <div class="imgBox">
+                        <img src="" alt="" />
+                        <!-- <img src="../img/1000009.jpg" alt="時代廣場的蟋蟀" /> -->
+                      </div>
+
+                      <div class="contentInfo">
+                        <p>
+                          <span class="textStyle">作者：</span>
+                          <span class="author textStyle">XXX</span>
+                        </p>
+                        <p>
+                          <span class="textStyle">ISBN：</span>
+                          <span class="isbn textStyle">987654321</span>
+                        </p>
+                        <p>
+                          <span class="textStyle">出版日期：</span>
+                          <span class="date textStyle">2015年10月</span>
+                        </p>
+                        <p>
+                          <span class="textStyle">定價：</span>
+                          <span class="pay textStyle">200</span>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="contentRecord d-flex w-100">
+                    <span class="rank">2</span>
+                    <span class="name textStyle"
+                      >你所謂的穩定，不過是浪費生命</span
+                    >
+                    <span class="company textStyle">XX出版社</span>
+                    <span class="hot">9.5</span>
+                  </div>
+                  <div class="content book-show">
+                    <div class="d-flex justify-content-center h-100">
+                      <div class="imgBox">
+                        <img src="" alt="" />
+                      </div>
+                      <div class="contentInfo">
+                        <p>
+                          <span class="textStyle">作者：</span>
+                          <span class="author textStyle">XXX</span>
+                        </p>
+                        <p>
+                          <span class="textStyle">ISBN：</span>
+                          <span class="isbn textStyle">987654321</span>
+                        </p>
+                        <p>
+                          <span class="textStyle">出版日期：</span>
+                          <span class="date textStyle">2015年10月</span>
+                        </p>
+                        <p>
+                          <span class="textStyle">定價：</span>
+                          <span class="pay textStyle">200</span>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="contentRecord d-flex w-100">
+                    <span class="rank">3</span>
+                    <span class="name textStyle">擺渡人</span>
+                    <span class="company textStyle">XX出版社</span>
+                    <span class="hot">9.5</span>
+                  </div>
+                  <div class="content book-show">
+                    <div class="d-flex justify-content-center h-100">
+                      <div class="imgBox">
+                        <img src="" alt="" />
+                      </div>
+                      <div class="contentInfo">
+                        <p>
+                          <span class="textStyle">作者：</span>
+                          <span class="author textStyle">XXX</span>
+                        </p>
+                        <p>
+                          <span class="textStyle">ISBN：</span>
+                          <span class="isbn textStyle">987654321</span>
+                        </p>
+                        <p>
+                          <span class="textStyle">出版日期：</span>
+                          <span class="date textStyle">2015年10月</span>
+                        </p>
+                        <p>
+                          <span class="textStyle">定價：</span>
+                          <span class="pay textStyle">200</span>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="contentRecord d-flex w-100">
+                    <span class="rank">4</span>
+                    <span class="name textStyle">阿彌陀佛 麼麼噠</span>
+                    <span class="company textStyle">XX出版社</span>
+                    <span class="hot">9.5</span>
+                  </div>
+                  <div class="content book-show">
+                    <div class="d-flex justify-content-center h-100">
+                      <div class="imgBox">
+                        <img src="" alt="" />
+                      </div>
+                      <div class="contentInfo">
+                        <p>
+                          <span class="textStyle">作者：</span>
+                          <span class="author textStyle">XXX</span>
+                        </p>
+                        <p>
+                          <span class="textStyle">ISBN：</span>
+                          <span class="isbn textStyle">987654321</span>
+                        </p>
+                        <p>
+                          <span class="textStyle">出版日期：</span>
+                          <span class="date textStyle">2015年10月</span>
+                        </p>
+                        <p>
+                          <span class="textStyle">定價：</span>
+                          <span class="pay textStyle">200</span>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="contentRecord d-flex w-100">
+                    <span class="rank">5</span>
+                    <span class="name textStyle">三生三世，十里桃花</span>
+                    <span class="company textStyle">XX出版社</span>
+                    <span class="hot">9.5</span>
+                  </div>
+                  <div class="content book-show">
+                    <div class="d-flex justify-content-center h-100">
+                      <div class="imgBox">
+                        <img src="" alt="" />
+                      </div>
+                      <div class="contentInfo">
+                        <p>
+                          <span class="textStyle">作者：</span>
+                          <span class="author textStyle">XXX</span>
+                        </p>
+                        <p>
+                          <span class="textStyle">ISBN：</span>
+                          <span class="isbn textStyle">987654321</span>
+                        </p>
+                        <p>
+                          <span class="textStyle">出版日期：</span>
+                          <span class="date textStyle">2015年10月</span>
+                        </p>
+                        <p>
+                          <span class="textStyle">定價：</span>
+                          <span class="pay textStyle">200</span>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+              <ul class="ulCarousel">
+                <li class="active">
+                  <div class="contentRecord d-flex w-100">
+                    <span class="rank">1</span>
+                    <span class="name textStyle">離開前請叫醒我</span>
+                    <span class="company textStyle">XX出版社</span>
+                    <span class="hot">9.5</span>
+                  </div>
+                  <div class="book-show">
+                    <div class="d-flex justify-content-center h-100">
+                      <div class="imgBox">
+                        <img src="" alt="" />
+                      </div>
+                      <div class="contentInfo">
+                        <p>
+                          <span class="textStyle">作者：</span>
+                          <span class="author textStyle">XXX</span>
+                        </p>
+                        <p>
+                          <span class="textStyle">ISBN：</span>
+                          <span class="isbn textStyle">987654321</span>
+                        </p>
+                        <p>
+                          <span class="textStyle">出版日期：</span>
+                          <span class="date textStyle">2015年10月</span>
+                        </p>
+                        <p>
+                          <span class="textStyle">定價：</span>
+                          <span class="pay textStyle">200</span>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="contentRecord d-flex w-100">
+                    <span class="rank">2</span>
+                    <span class="name textStyle">乒乒和乓乓釣大魚</span>
+                    <span class="company textStyle">XX出版社</span>
+                    <span class="hot">9.5</span>
+                  </div>
+                  <div class="content book-show">
+                    <div class="d-flex justify-content-center h-100">
+                      <div class="imgBox">
+                        <img src="" alt="" />
+                      </div>
+                      <div class="contentInfo">
+                        <p>
+                          <span class="textStyle">作者：</span>
+                          <span class="author textStyle">XXX</span>
+                        </p>
+                        <p>
+                          <span class="textStyle">ISBN：</span>
+                          <span class="isbn textStyle">987654321</span>
+                        </p>
+                        <p>
+                          <span class="textStyle">出版日期：</span>
+                          <span class="date textStyle">2015年10月</span>
+                        </p>
+                        <p>
+                          <span class="textStyle">定價：</span>
+                          <span class="pay textStyle">200</span>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="contentRecord d-flex w-100">
+                    <span class="rank">3</span>
+                    <span class="name textStyle">十宗罪</span>
+                    <span class="company textStyle">XX出版社</span>
+                    <span class="hot">9.5</span>
+                  </div>
+                  <div class="content book-show">
+                    <div class="d-flex justify-content-center h-100">
+                      <div class="imgBox">
+                        <img src="" alt="" />
+                      </div>
+                      <div class="contentInfo">
+                        <p>
+                          <span class="textStyle">作者：</span>
+                          <span class="author textStyle">XXX</span>
+                        </p>
+                        <p>
+                          <span class="textStyle">ISBN：</span>
+                          <span class="isbn textStyle">987654321</span>
+                        </p>
+                        <p>
+                          <span class="textStyle">出版日期：</span>
+                          <span class="date textStyle">2015年10月</span>
+                        </p>
+                        <p>
+                          <span class="textStyle">定價：</span>
+                          <span class="pay textStyle">200</span>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="contentRecord d-flex w-100">
+                    <span class="rank">4</span>
+                    <span class="name textStyle">小方子治大病</span>
+                    <span class="company textStyle">XX出版社</span>
+                    <span class="hot">9.5</span>
+                  </div>
+                  <div class="content book-show">
+                    <div class="d-flex justify-content-center h-100">
+                      <div class="imgBox">
+                        <img src="" alt="" />
+                      </div>
+                      <div class="contentInfo">
+                        <p>
+                          <span class="textStyle">作者：</span>
+                          <span class="author textStyle">XXX</span>
+                        </p>
+                        <p>
+                          <span class="textStyle">ISBN：</span>
+                          <span class="isbn textStyle">987654321</span>
+                        </p>
+                        <p>
+                          <span class="textStyle">出版日期：</span>
+                          <span class="date textStyle">2015年10月</span>
+                        </p>
+                        <p>
+                          <span class="textStyle">定價：</span>
+                          <span class="pay textStyle">200</span>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="contentRecord d-flex w-100">
+                    <span class="rank">5</span>
+                    <span class="name textStyle">老鼠娶新娘</span>
+                    <span class="company textStyle">XX出版社</span>
+                    <span class="hot">9.5</span>
+                  </div>
+                  <div class="content book-show">
+                    <div class="d-flex justify-content-center h-100">
+                      <div class="imgBox">
+                        <img src="" alt="" />
+                      </div>
+                      <div class="contentInfo">
+                        <p>
+                          <span class="textStyle">作者：</span>
+                          <span class="author textStyle">XXX</span>
+                        </p>
+                        <p>
+                          <span class="textStyle">ISBN：</span>
+                          <span class="isbn textStyle">987654321</span>
+                        </p>
+                        <p>
+                          <span class="textStyle">出版日期：</span>
+                          <span class="date textStyle">2015年10月</span>
+                        </p>
+                        <p>
+                          <span class="textStyle">定價：</span>
+                          <span class="pay textStyle">200</span>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="leftDown">
+          <h5>出版社排行</h5>
+          <div class="titleRecord d-flex">
+            <span class="rank"></span>
+            <span class="company">出版公司簡稱</span>
+            <span class="hot">綜合熱度</span>
+          </div>
+          <ul class="ulCarousel">
+            <li>
+              <div class="contentRecord d-flex">
+                <span class="rank">1</span>
+                <span class="company textStyle">XX出版社</span>
+                <span class="hot">9.5</span>
+              </div>
+            </li>
+            <li>
+              <div class="contentRecord d-flex">
+                <span class="rank textStyle">2</span>
+                <span class="company textStyle">oo出版社</span>
+                <span class="hot">9.5</span>
+              </div>
+            </li>
+            <li>
+              <div class="contentRecord d-flex">
+                <span class="rank textStyle">3</span>
+                <span class="company textStyle">OX出版社</span>
+                <span class="hot">9.5</span>
+              </div>
+            </li>
+            <li>
+              <div class="contentRecord d-flex">
+                <span class="rank textStyle">4</span>
+                <span class="company textStyle">XO出版社</span>
+                <span class="hot">9.5</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="middle">
+        <div class="mapUp">
+          <h3 class="d-flex">
+            <dl>
+              <dt>書目數據</dt>
+              <dd id="bookData" class="unit-number">853</dd>
+            </dl>
+            <dl>
+              <dt>品種數</dt>
+              <dd id="varityData" class="unit-type">25</dd>
+            </dl> 
+            <dl>
+              <dt>銷售碼洋</dt>
+              <dd id="salesData" class="unit-wanyuan">30,340</dd>
+            </dl> 
+            <dl>
+              <dt>單位數</dt>
+              <dd>22</dd>
+            </dl> 
+            <dl>
+              <dt>庫存碼洋</dt>
+              <dd id="stockData" class="unit-wanyuan">12,710</dd>
+            </dl>                                  
+          </h3>
+        </div>
+        <div id="twMap"></div>
+        <div class="mapTitle">交換書目數據地圖</div>
+        <div class="mapFocus d-flex">
+          <div id="focusTitle"></div>
+          <div id="focusContent"></div>
+        </div>
+        <div id="popup" class="olPopup d-flex">
+          <!-- <div id="popupImg" class="popupImg"></div> -->
+          <div id="popupTitle"></div>
+          <div id="popupContent"></div>
+        </div>
+        <div id="pointPopup" class="pointPopup"></div>
+      </div>
+      <div class="right">
+        <div class="rightUp">
+          <div class="d-flex">
+            <div class="rightUpLeft">
+              <h5>分類銷售佔比</h5>
+              <figure class="highcharts-figure">
+                <div id="leftPie"></div>
+              </figure>
+            </div>
+            <div class="rightUpRight">
+              <h5>分類庫存佔比</h5>
+              <figure class="highcharts-figure">
+                <div id="rightPie"></div>
+              </figure>
+            </div>
+          </div>
+        </div>
+        <div class="rightMiddle">
+          <h5>各地區銷售碼洋排行</h5>
+          <figure class="highcharts-figure">
+            <div id="rightBar"></div>
+          </figure>
+        </div>
+        <div class="rightDown">
+          <!-- <h5>全台市場圖書走勢圖</h5> -->
+          <figure class="highcharts-figure">
+            <div id="rightColumnLine"></div>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="../js/fakedata.js"></script>
+  <script src="../js/mapData.js"></script>
+  <script src="../js/index.js"></script>
+  <script src="../js/taiwanMap.js"></script>
+</html>

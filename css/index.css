@@ -1,0 +1,677 @@
+@charset "UTF-8";
+@font-face {
+  font-family: DigifaceWide;
+  src: url("./fonts/digifaw.ttf");
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  width: 100%;
+  overflow: hidden;
+  height: 100%;
+}
+
+body {
+  background: url("../img/bg.png") no-repeat;
+  background-size: 100% 100%;
+  position: relative;
+}
+body::before {
+  content: "";
+  background: url("../img/circle.png") no-repeat;
+  background-size: 100%;
+  width: 5.2%;
+  height: 12%;
+  position: absolute;
+  top: 7.6%;
+  right: 0;
+}
+
+/* 標頭 */
+.header {
+  width: 100%;
+  height: 10%;
+  position: relative;
+}
+.header .titleLeft {
+  background: url(../img/title_left_img.png) no-repeat left;
+  background-size: 100%;
+  width: 25%;
+  margin-left: 20px;
+}
+.header .titleMiddle {
+  align-self: flex-start;
+  width: 50%;
+}
+.header .titleMiddle .title {
+  width: 100%;
+  font-size: 2.5rem;
+  justify-content: center;
+  align-items: flex-end;
+  display: flex;
+  letter-spacing: 0.3rem;
+  color: #ffffff;
+}
+.header .titleMiddle .gifImg {
+  position: absolute;
+  top: 60%;
+  width: 50%;
+  height: 80%;
+  min-height: 50px;
+  overflow: hidden;
+}
+.header .titleMiddle .gifImg:after {
+  content: "";
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, 20%);
+  display: block;
+  background: url(../img/header.gif) no-repeat center;
+  background-size: 100%;
+  height: 55px;
+  width: 36.5%;
+  min-width: 700px;
+}
+.header .titleMiddle .gifImg .currentTime {
+  width: 100%;
+  height: 100%;
+  font-size: 1.3rem;
+  display: flex;
+  color: #ffffff;
+  justify-content: center;
+  align-items: center;
+}
+.header .titleRight {
+  align-self: flex-end;
+}
+.header .titleRight .nav-link {
+  color: #ffffff !important;
+}
+.header .titleRight .nav-link:hover {
+  color: #ffe4c4 !important;
+}
+
+/* 標頭 */
+.main {
+  width: 100%;
+  height: 84%;
+}
+.main h5 {
+  color: #ffffff;
+  position: absolute;
+}
+.main .left {
+  position: relative;
+  width: 25%;
+  height: 100%;
+  margin-left: 20px;
+}
+.main .left .titleRecord {
+  color: #2edbff;
+  position: absolute;
+  top: 13%;
+  width: 100%;
+}
+.main .left h5 {
+  top: 4%;
+  left: 10%;
+}
+.main .left .rank,
+.main .left .name,
+.main .left .company,
+.main .left .hot {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.main .left .rank {
+  width: 13%;
+  text-align: center;
+  color: #2edbff;
+}
+.main .left .textStyle {
+  color: #ffffff;
+}
+.main .left .leftUp {
+  position: relative;
+  height: 49%;
+  opacity: 0.9;
+  background: rgba(18, 22, 64, 0.5);
+}
+.main .left .leftUp:after {
+  position: absolute;
+  right: 0;
+  bottom: -10.4%;
+  width: 5%;
+  min-width: 20px;
+  height: 13%;
+  min-height: 50px;
+  background: url("../img/bor1_1_xie.png") no-repeat;
+  background-size: 100% 100%;
+  content: "";
+}
+.main .left .leftUp:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 106%;
+  background: url("../img/bor1_1.png") no-repeat;
+  background-size: 100% 100%;
+  z-index: -1;
+  content: "";
+}
+.main .left .leftUp .name {
+  width: 32%;
+}
+.main .left .leftUp .company {
+  width: 34%;
+}
+.main .left .leftUp .hot {
+  width: 19%;
+  padding-left: 2%;
+}
+.main .left .leftUp .hCarousel {
+  position: relative;
+  width: 100%;
+  height: 103%;
+  overflow: hidden;
+}
+.main .left .leftUp .hCarousel .hCarouselWarp {
+  width: 100%;
+  position: absolute;
+  top: 20%;
+  left: 0;
+}
+.main .left .leftUp .hCarousel .go {
+  transition: all 0.5s linear;
+}
+.main .left .leftUp .hCarousel .top1 {
+  top: -100% !important;
+}
+.main .left .leftUp .hCarousel .top2 {
+  top: -200% !important;
+}
+.main .left .leftUp .ulCarousel {
+  height: 100%;
+  padding: 0;
+  margin-bottom: 3rem;
+}
+.main .left .leftUp .ulCarousel li {
+  height: 11.5%;
+  cursor: pointer;
+}
+.main .left .leftUp .ulCarousel li .contentRecord {
+  height: 100%;
+}
+.main .left .leftUp .ulCarousel li .book-show {
+  display: none;
+  position: relative;
+  overflow: hidden;
+  margin-top: 2%;
+}
+.main .left .leftUp .ulCarousel li .book-show .imgBox {
+  position: relative;
+  width: 25%;
+  height: 100%;
+  margin: 0 4% 0 6%;
+}
+.main .left .leftUp .ulCarousel li .book-show .imgBox img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  max-height: 100%;
+  overflow: hidden;
+}
+.main .left .leftUp .ulCarousel li .book-show .contentInfo {
+  align-self: center;
+  width: 45%;
+  height: 100%;
+  margin-top: 2%;
+  font-size: 1rem;
+  overflow: hidden;
+}
+.main .left .leftUp .ulCarousel li .book-show .contentInfo p {
+  height: 20%;
+  margin: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.main .left .leftUp .ulCarousel li.active {
+  height: auto;
+  background: rgba(19, 151, 255, 0.1);
+}
+.main .left .leftUp .ulCarousel li.active .contentRecord {
+  border-bottom: none;
+}
+.main .left .leftUp .ulCarousel li.active .book-show {
+  display: block;
+}
+.main .left .contentRecord {
+  border-bottom: 1px solid rgba(19, 151, 255, 0.1);
+  font-size: 12px;
+}
+.main .left .contentRecord span {
+  display: inline-block;
+  height: 100%;
+}
+.main .left .contentRecord .rank {
+  color: #2edbff;
+}
+.main .left .contentRecord .hot {
+  color: #1397ff;
+}
+.main .left .leftDown {
+  position: absolute;
+  width: 100%;
+  height: 49%;
+  bottom: 0;
+  opacity: 0.9;
+}
+.main .left .leftDown:before {
+  content: "";
+  position: absolute;
+  top: 5.6%;
+  right: -2%;
+  z-index: 100;
+  width: 15%;
+  height: 7%;
+  background: url("../img/bor1_2_square.png") no-repeat;
+  background-size: 100%;
+  z-index: 10;
+}
+.main .left .leftDown:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 104%;
+  background: url("../img/bor1_2.png") no-repeat;
+  background-size: 100% 97%;
+  z-index: -1;
+}
+.main .left .leftDown .company {
+  width: 67%;
+}
+.main .left .leftDown .hot {
+  width: 20%;
+}
+.main .left .leftDown .ulCarousel {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  position: absolute;
+  top: 20%;
+}
+.main .left .leftDown .ulCarousel li {
+  height: 10.5%;
+  border-bottom: 1px solid rgba(19, 151, 255, 0.1);
+  width: 100%;
+}
+.main .left .leftDown .ulCarousel li .contentRecord {
+  height: 100%;
+  border-bottom: none;
+}
+.main .left .leftDown .ulCarousel li .company {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.main .left .leftDown .pressRotate {
+  -webkit-animation: recordRotate 0.5s ease-in;
+          animation: recordRotate 0.5s ease-in;
+}
+@-webkit-keyframes recordRotate {
+  0% {
+    transform: rotateX(0deg);
+  }
+  100% {
+    transform: rotateX(360deg);
+  }
+}
+@keyframes recordRotate {
+  0% {
+    transform: rotateX(0deg);
+  }
+  100% {
+    transform: rotateX(360deg);
+  }
+}
+.main .middle {
+  width: 50%;
+  height: 100%;
+  position: relative;
+}
+.main .middle #twMap {
+  height: 500px;
+  width: 100%;
+  min-width: 310px;
+  max-width: 800px;
+  margin: 0 auto;
+  position: absolute;
+  top: 19%;
+  z-index: 99;
+}
+.main .middle h3 {
+  height: 14%;
+}
+.main .middle .mapUp {
+  position: absolute;
+  width: 100%;
+  height: 94%;
+  top: 6%;
+  opacity: 0.9;
+  border-top: 4px solid #121e52;
+  border-bottom: 4px solid #10144b;
+  background: rgba(18, 22, 64, 0.5);
+  background-size: 100% 100%;
+}
+.main .middle .mapUp h3 {
+  position: absolute;
+  top: 1%;
+  left: 50%;
+  width: 100%;
+  padding: 0 3%;
+  transform: translate(-50%, 0);
+}
+.main .middle .mapUp h3 dl {
+  width: 20%;
+  padding: 0.4% 0.2% 0 0.4%;
+  border-left: 2px solid #00bbec;
+}
+.main .middle .mapUp h3 dl dt {
+  font-size: 1rem;
+  color: #00bbec;
+  margin-bottom: 5%;
+}
+.main .middle .mapUp h3 dl dd {
+  font-family: DigifaceWide;
+  font-size: 1.8rem;
+  color: #ffffff;
+}
+.main .middle .mapTitle {
+  position: absolute;
+  left: 11%;
+  top: 30%;
+  font-size: 1.5rem;
+  color: #ffffff;
+}
+.main .middle .mapFocus {
+  position: absolute;
+  top: 50vh;
+  left: 65vh;
+  width: 40%;
+  height: 20%;
+}
+.main .middle .mapFocus::after {
+  content: "";
+  background: url("../img/tip-bg.png") no-repeat;
+  background-size: 100% 100%;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0vh;
+  left: -3vh;
+}
+.main .middle .mapFocus #focusTitle {
+  font-size: 1.5rem;
+  width: 80px;
+  color: #ffffff;
+  z-index: 1;
+  align-self: center;
+}
+.main .middle .mapFocus #focusContent {
+  font-size: 1rem;
+  color: #ffffff;
+  width: 150px;
+  position: absolute;
+  top: 20px;
+  left: 85px;
+  z-index: 1;
+}
+.main .middle .olPopup {
+  position: absolute;
+  bottom: 30px;
+  left: -38px;
+}
+.main .middle .olPopup::after {
+  content: "";
+  background: url("../img/tip-bg.png") no-repeat;
+  background-size: 100% 100%;
+  width: 300px;
+  height: 130px;
+  position: absolute;
+  top: -44px;
+  left: -19px;
+  z-index: -1;
+}
+.main .middle .olPopup #popupTitle {
+  font-size: 1.5rem;
+  width: 80px;
+  color: #ffffff;
+}
+.main .middle .olPopup #popupContent {
+  font-size: 1rem;
+  color: #ffffff;
+  width: 150px;
+  position: absolute;
+  top: -25px;
+  left: 85px;
+}
+.main .middle .pointPopup {
+  position: absolute;
+  bottom: 10px;
+  left: -25px;
+  color: #ffffff;
+  width: 50px;
+  text-align: center;
+}
+.main .right {
+  position: relative;
+  width: 25%;
+  height: 100%;
+  margin-right: 20px;
+}
+.main .right .rightUp {
+  position: relative;
+  height: 38%;
+  margin-bottom: 1%;
+}
+.main .right .rightUp::after {
+  content: "";
+  background: url("../img/bor1_4.png") no-repeat;
+  background-size: 100% 100%;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.main .right .rightUp .rightUpLeft {
+  width: 50%;
+}
+.main .right .rightUp .rightUpLeft h5 {
+  top: 9%;
+  left: 8%;
+}
+.main .right .rightUp .rightUpRight {
+  width: 50%;
+}
+.main .right .rightUp .rightUpRight h5 {
+  top: 9%;
+  left: 59%;
+}
+.main .right .rightUp #leftPie,
+.main .right .rightUp #rightPie {
+  height: 100%;
+  width: 50%;
+  position: absolute;
+  top: -3%;
+}
+.main .right .rightUp .highcharts-figure {
+  min-width: 100%;
+  max-width: 660px;
+}
+.main .right .rightUp .highcharts-data-table table {
+  min-width: 320px;
+  max-width: 660px;
+  margin: 1em auto;
+}
+.main .right .rightUp .highcharts-data-table table {
+  font-family: Verdana, sans-serif;
+  border-collapse: collapse;
+  border: 1px solid #ebebeb;
+  margin: 10px auto;
+  text-align: center;
+  width: 100%;
+  max-width: 500px;
+}
+.main .right .rightUp .highcharts-data-table caption {
+  padding: 1em 0;
+  font-size: 1.2em;
+  color: #555;
+}
+.main .right .rightUp .highcharts-data-table th {
+  font-weight: 600;
+  padding: 0.5em;
+}
+.main .right .rightUp .highcharts-data-table td,
+.main .right .rightUp .highcharts-data-table th,
+.main .right .rightUp .highcharts-data-table caption {
+  padding: 0.5em;
+}
+.main .right .rightUp .highcharts-data-table thead tr,
+.main .right .rightUp .highcharts-data-table tr:nth-child(even) {
+  background: #f8f8f8;
+}
+.main .right .rightUp .highcharts-data-table tr:hover {
+  background: #f1f7ff;
+}
+.main .right .rightMiddle {
+  position: relative;
+  height: 35%;
+  margin-bottom: 1%;
+}
+.main .right .rightMiddle::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: url("../img/bor1_5.png") no-repeat;
+  background-size: 100% 100%;
+}
+.main .right .rightMiddle h5 {
+  top: 12%;
+  left: 5%;
+}
+.main .right .rightMiddle .highcharts-figure,
+.main .right .rightMiddle .highcharts-data-table table {
+  min-width: 310px;
+  max-width: 800px;
+  margin: 0;
+}
+.main .right .rightMiddle #rightBar {
+  width: 100%;
+  height: 80%;
+  position: absolute;
+  top: 19%;
+  left: 2%;
+}
+.main .right .rightMiddle .highcharts-data-table table {
+  font-family: Verdana, sans-serif;
+  border-collapse: collapse;
+  border: 1px solid #ebebeb;
+  margin: 10px auto;
+  text-align: center;
+  width: 100%;
+  max-width: 500px;
+}
+.main .right .rightMiddle .highcharts-data-table caption {
+  padding: 1em 0;
+  font-size: 1.2em;
+  color: #555;
+}
+.main .right .rightMiddle .highcharts-data-table th {
+  font-weight: 600;
+  padding: 0.5em;
+}
+.main .right .rightMiddle .highcharts-data-table td,
+.main .right .rightMiddle .highcharts-data-table th,
+.main .right .rightMiddle .highcharts-data-table caption {
+  padding: 0.5em;
+}
+.main .right .rightMiddle .highcharts-data-table thead tr,
+.main .right .rightMiddle .highcharts-data-table tr:nth-child(even) {
+  background: #f8f8f8;
+}
+.main .right .rightMiddle .highcharts-data-table tr:hover {
+  background: #f1f7ff;
+}
+.main .right .rightDown {
+  position: relative;
+  width: 100%;
+  height: 26%;
+}
+.main .right .rightDown::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: url("../img/bor1_6.png") no-repeat;
+  background-size: 100% 100%;
+}
+.main .right .rightDown h5 {
+  top: 12%;
+  left: 5%;
+}
+.main .right .rightDown .highcharts-figure,
+.main .right .rightDown .highcharts-data-table table {
+  min-width: 310px;
+  max-width: 800px;
+  margin: 0;
+}
+.main .right .rightDown #rightColumnLine {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 7%;
+}
+.main .right .rightDown .highcharts-data-table table {
+  font-family: Verdana, sans-serif;
+  border-collapse: collapse;
+  border: 1px solid #ebebeb;
+  margin: 10px auto;
+  text-align: center;
+  width: 100%;
+  max-width: 500px;
+}
+.main .right .rightDown .highcharts-data-table caption {
+  padding: 1em 0;
+  font-size: 1.2em;
+  color: #555;
+}
+.main .right .rightDown .highcharts-data-table th {
+  font-weight: 600;
+  padding: 0.5em;
+}
+.main .right .rightDown .highcharts-data-table td,
+.main .right .rightDown .highcharts-data-table th,
+.main .right .rightDown .highcharts-data-table caption {
+  padding: 0.5em;
+}
+.main .right .rightDown .highcharts-data-table thead tr,
+.main .right .rightDown .highcharts-data-table tr:nth-child(even) {
+  background: #f8f8f8;
+}
+.main .right .rightDown .highcharts-data-table tr:hover {
+  background: #f1f7ff;
+}/*# sourceMappingURL=index.css.map */
